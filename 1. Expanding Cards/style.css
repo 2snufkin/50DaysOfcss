@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
+
+
+/*
+If you don't mention display: flex you can not use those attributes!
+
+    Flex Container Properties:
+        flex-direction: Defines the direction of the main axis.
+        flex-wrap: Specifies whether the flex items should wrap into multiple lines.
+        justify-content: Aligns flex items along the main axis.
+        align-items: Aligns flex items along the cross axis.
+        align-content: Aligns flex lines along the cross axis.
+
+    Flex Item Properties:
+        order: Controls the order in which the flex items appear.
+        flex-grow: Specifies the ability for a flex item to grow.
+        flex-shrink: Specifies the ability for a flex item to shrink.
+        flex-basis: Specifies the initial size of a flex item.
+        flex: Shorthand for flex-grow, flex-shrink, and flex-basis.
+        align-self: Allows the default alignment to be overridden for individual flex items.
+*/
+
+
+/* Apply box-sizing to all elements changes the box model for all elements,
+including padding and border, to be included in the element's total width and height. */
+
+* {
+	box-sizing: border-box;
+}
+
+
+body{
+    margin: 0px;
+	font-family: 'Muli', sans-serif;
+	display: flex; /* let you have access to justify-content etc... */
+	align-items: center; /* how it arrange depends in flex-direction. if its column it will ceneter on the x axis otherwise y axis*/
+	justify-content: center; /* will have no effect if you don't have height value*/
+	height: 100vh; /* the height for the justify-content to work*/
+	overflow: hidden; /* avoid showing scroolbar by default */
+}
+.container{
+    display: flex;
+    height: 80vh;
+    width: 90vw;
+    justify-content: center; /* container will take the height of its content by default, and if you have flex items inside it, 
+    justify-content: center; will work to center those items along the main axis.*/
+}
+.panel {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius: 50px;
+    cursor: pointer;
+
+    flex: 0.5; /*allows the item to grow to half the available space if needed, can shrink, and initially takes up no space. it include
+    flex-grow: 0.5;
+    flex-shrink: 1;
+    flex-basis: 0%;*/
+
+    margin:10px;
+    position: relative; /* it's important since you want to position the h3 as absolute*/
+    transition: flex 0.7 ease-in; /* Transition effect for the 'flex' property with a duration of 0.7 seconds and an easing function of 'ease-in' */
+}
+
+.panel h3{
+    font-size: 24px;
+    position: absolute; /* I want to poisition it inside the image div on the bottom*/
+    bottom: 20px;
+    left:20px;
+    color: white; 
+    margin: 0;
+    opacity: 0; /* I want the header to show only if the image is clicked */
+
+}
+
+/* Those defentions are when the user click on an image. I want it to become bigger and to the title to appear */
+.panel.active{
+    flex:5;
+}
+.panel.active h3 {
+    opacity:1;
+}
+
+/* If the scrren is really small i want to show only 3 and not 5
