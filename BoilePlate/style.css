@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+/*
+If you don't mention display: flex you can not use those attributes!
+
+    Flex Container Properties:
+        flex-direction: Defines the direction of the main axis.
+        flex-wrap: Specifies whether the flex items should wrap into multiple lines.
+        justify-content: Aligns flex items along the main axis.
+        align-items: Aligns flex items along the cross axis.
+        align-content: Aligns flex lines along the cross axis.
+
+    Flex Item Properties:
+        order: Controls the order in which the flex items appear.
+        flex-grow: Specifies the ability for a flex item to grow.
+        flex-shrink: Specifies the ability for a flex item to shrink.
+        flex-basis: Specifies the initial size of a flex item.
+        flex: Shorthand for flex-grow, flex-shrink, and flex-basis.
+        align-self: Allows the default alignment to be overridden for individual flex items.
+*/
+
+
+/* Apply box-sizing to all elements changes the box model for all elements,
+including padding and border, to be included in the element's total width and height. */
+
+* {
+	box-sizing: border-box;
+}
+
+
+body{
+	/* margin:0 You wil ladd margin:0 but since you are using tailwind it's being applay behind the scenes. */
+	font-family: 'Roboto', sans-serif;
+	display: flex; /* let you have access to justify-content etc... */
+	flex-direction: column;
+	align-items: center; /* how it arrange depends in flex-direction. if its column it will ceneter on the x axis otherwise y axis*/
+	justify-content: center; /* will have no effect if you don't have height value*/
+	height: 100vh; /* the height for the justify-content to work*/
+	overflow: hidden; /* avoid showing scroolbar by default */
+}
